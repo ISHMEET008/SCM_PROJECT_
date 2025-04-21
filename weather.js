@@ -112,5 +112,30 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             dayForecast.appendChild(dayElement);
         }
-    }         
+    } 
+    function updateHealthSafety(data) {
+        const forecast = data.list[0]; // Use the first forecasted weather data for current conditions
+
+        // Update Umbrella Need
+        if (forecast.weather[0].main.includes("Rain")) {
+            umbrellaNeed.textContent = "Yes, it's going to rain.";
+        } else {
+            umbrellaNeed.textContent = "No, you don't need an umbrella.";
+        }
+
+        // Update UV Index
+        const uv = forecast.main.temp > 30 ? "High" : "Low"; // Placeholder logic, replace with actual UV index data if available
+        uvIndex.textContent = uv;
+
+        // Update Outdoors Advice
+        if (forecast.weather[0].main.includes("Clear")) {
+            outdoors.textContent = "Great day for outdoor activities!";
+        } else if (forecast.weather[0].main.includes("Rain")) {
+            outdoors.textContent = "Better to stay indoors.";
+        } else {
+            outdoors.textContent = "Check the weather condition before going out.";
+        }
+
+        
+    }        
 });
