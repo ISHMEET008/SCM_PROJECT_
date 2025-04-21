@@ -214,14 +214,3 @@ footer {
 .temperature{
     font-size:38px;
 }
-.day .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.day-name, .temps, .precipitation {
-    color: wheat;
-    margin-bottom: 5px;
-}
