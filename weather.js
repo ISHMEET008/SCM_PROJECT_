@@ -112,5 +112,54 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             dayForecast.appendChild(dayElement);
         }
-    }         
+    } 
+    function updateHealthSafety(data) {
+        const forecast = data.list[0]; // Use the first forecasted weather data for current conditions
+
+        // Update Umbrella Need
+        if (forecast.weather[0].main.includes("Rain")) {
+            umbrellaNeed.textContent = "Yes, it's going to rain.";
+        } else {
+            umbrellaNeed.textContent = "No, you don't need an umbrella.";
+        }
+
+        // Update UV Index
+        const uv = forecast.main.temp > 30 ? "High" : "Low"; // Placeholder logic, replace with actual UV index data if available
+        uvIndex.textContent = uv;
+
+        // Update Outdoors Advice
+        if (forecast.weather[0].main.includes("Clear")) {
+            outdoors.textContent = "Great day for outdoor activities!";
+        } else if (forecast.weather[0].main.includes("Rain")) {
+            outdoors.textContent = "Better to stay indoors.";
+        } else {
+            outdoors.textContent = "Check the weather condition before going out.";
+        }
+
+        
+    }        
+    // Update Driving Safety
+        if (forecast.weather[0].main.includes("Rain") || forecast.weather[0].main.includes("Snow")) {
+            drivingSafety.textContent = "Drive carefully, road conditions might be hazardous.";
+        } else {
+            drivingSafety.textContent = "Safe to drive.";
+        }
+
+        // // Update Clothing Recommendation
+        const temp = forecast.main.temp;
+        if (temp < 10) {
+            clothing.textContent = "Wear warm clothes.";
+        } else if (temp < 20) {
+            clothing.textContent = "Wear a light jacket.";
+        } else {
+            clothing.textContent = "Light clothing is fine.";
+        }
+
+        // // Update Heat Stroke Warning
+        if (temp > 35) {
+            heatStroke.textContent = "Warning: High risk of heat stroke.";
+        } else {
+            heatStroke.textContent = "Low risk of heat stroke.";
+        }
+    
 });
