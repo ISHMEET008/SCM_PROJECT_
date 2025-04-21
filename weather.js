@@ -33,6 +33,12 @@ document.addEventListener("DOMContentLoaded", function() {
             fetchWeather(location);
         }
     });
+    tempToggle.addEventListener("click", function() {
+        isCelsius = !isCelsius;
+        updateCurrentWeather(currentWeatherData);
+        updateForecast(forecastData);
+        tempToggle.textContent = isCelsius ? "Switch to °F" : "Switch to °C";
+    });
 
 
     function fetchWeather(location) {
