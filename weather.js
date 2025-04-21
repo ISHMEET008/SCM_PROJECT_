@@ -138,4 +138,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
     }        
+    // Update Driving Safety
+        if (forecast.weather[0].main.includes("Rain") || forecast.weather[0].main.includes("Snow")) {
+            drivingSafety.textContent = "Drive carefully, road conditions might be hazardous.";
+        } else {
+            drivingSafety.textContent = "Safe to drive.";
+        }
+
+        // // Update Clothing Recommendation
+        const temp = forecast.main.temp;
+        if (temp < 10) {
+            clothing.textContent = "Wear warm clothes.";
+        } else if (temp < 20) {
+            clothing.textContent = "Wear a light jacket.";
+        } else {
+            clothing.textContent = "Light clothing is fine.";
+        }
+
+        // // Update Heat Stroke Warning
+        if (temp > 35) {
+            heatStroke.textContent = "Warning: High risk of heat stroke.";
+        } else {
+            heatStroke.textContent = "Low risk of heat stroke.";
+        }
+    
 });
