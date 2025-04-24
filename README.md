@@ -1,4 +1,3 @@
-Project Team
 Project Title: Weather Forecasting App
 Platform: Frontend Web-Based (No Backend)
 Project Description:
