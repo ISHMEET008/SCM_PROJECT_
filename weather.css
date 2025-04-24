@@ -331,3 +331,5 @@ footer {
     top:300px;
 right:35px;
 }
+
+.health-safety { background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px; text-align: center; color: #fff; margin-top: 20px; width:50%;}
